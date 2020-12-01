@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizHobbit</title>
+</head>
+
+<body onload="IniciarJogo()">
+
+    <link rel="stylesheet" href="../Quiz Hobbit/estilo.css">
+
+ 
+
+    <div class="container">
+        <div id="game" class="justify-content-center flex-column align-items-center">
+            <div>
+                <img id="question-image" class="image">
+            </div>
+            <div id="question" class="question">
+            </div>
+            <div id="question-container">
+                <div class="question-container-option">
+                    <p class="questionOption">A - </p>
+                    <p id="questionA" class="question-answer" onclick="VerificarResposta(this.id)"></p>
+                </div>
+                <div class="question-container-option">
+                    <p class="questionOption">B - </p>
+                    <p id="questionB" class="question-answer" onclick="VerificarResposta(this.id)"></p>
+                </div>
+                <div class="question-container-option">
+                    <p class="questionOption">C - </p>
+                    <p id="questionC" class="question-answer" onclick="VerificarResposta(this.id)"></p>
+                </div>
+                <div class="question-container-option">
+                    <p class="questionOption">D - </p>
+                    <p id="questionD" class="question-answer" onclick="VerificarResposta(this.id)"></p>
+                </div>
+
+            </div>
+        </div>
+        <div id="count" class="question-count"></div>
+
+    </div>
+    </div>
+
+    <script type="text/javascript">
+
+        let questionCount = 0;
+        let score = 0;
+        const question = document.getElementById("question");
+        const questionA = document.getElementById("questionA");
+        const questionB = document.getElementById("questionB");
+        const questionC = document.getElementById("questionC");
+        const questionD = document.getElementById("questionD");
+        const img = document.getElementById("question-image");
+        const questions = document.getElementById("question-container");
+        const count = document.getElementById("count");
+        function IniciarJogo() {
+
+            novaQuestao();
+
+        }
+
+        limparCores = () => {
+            questionA.style.backgroundColor = "";
+            questionB.style.backgroundColor = "";
+            questionC.style.backgroundColor = "";
+            questionD.style.backgroundColor = "";
+        }
+
+        limparCampos = () => {
+            questionA.innerHTML = "";
+            questionB.innerHTML = "";
+            questionC.innerHTML = "";
+            questionD.innerHTML = "";
+            questions.style.display = "none";
+            count.innerHTML = "Sua Aventura chegou ao fim!";
+        }
+
+        novaQuestao = () => {
+            questionCount++;
+            count.innerHTML = 'Questão ' + questionCount + '/10';
+
+            switch (questionCount) {
+                case 1:
+                    img.src = "../Imagens/questão 1.jpg"
+                    setTimeout(function () { (question.innerHTML = '1)	Quais os nomes dos treze anões da companhia em  <i>The Hobbit</i>?'); }, 100);
+                    setTimeout(function () { (questionA.innerHTML = ' Arwen, Jonas, Golias, Frodo, Tyrion, Hector, Thorin, Melkor, Sauron, Saruman, Isildur, Aragorn e Fili.'); }, 2500);
+                    setTimeout(function () { (questionB.innerHTML = ' Bombur, Bifur, Jefferson, Kili, Smeagol, Sauron, Dwalin, Gandalf, Bilbo, Frodo, Sam, Gollum e Aragorn.'); }, 2600);
+                    setTimeout(function () { (questionC.innerHTML = ' Thorin, Balin, Dwalin, Nori, Ori, Dori, Bifur, Bofur, Bombur, Fili, Kili, Oin e Gloin.'); }, 2700);
+                    setTimeout(function () { (questionD.innerHTML = ' Bilbo, Balin, Dwalin, Nori, Ori, Dori, Bifur, Bofur, Legolas, Fili, Kili, Odin e Gloin.'); }, 2800);
+                    break;         
+                    
+                case 2:
+                    img.src = "../Imagens/questão 2.jpg"
+                    question.innerHTML = '2) Como Bilbo consegue escapar do <i>Gollum</i>?'
+                    questionA.innerHTML = ' Brincando de adivinhar charadas. '
+                    questionB.innerHTML = ' Correndo dele.'
+                    questionC.innerHTML = ' Lutando contra ele.'
+                    questionD.innerHTML = ' Promete tesouros após a jornada.'
+                    break;
+
+                case 3:
+                    img.src = "../Imagens/questão 3.jpg"
+                    question.innerHTML = '3) Qual o objeto capturado por Bilbo nas Montanhas Sombrias?'
+                    questionA.innerHTML = ' A espada.'
+                    questionB.innerHTML = ' Uma Pedra Valiosa.'
+                    questionC.innerHTML = ' Um arco mágico.'
+                    questionD.innerHTML = ' O anel.'
+                    break;
+
+                case 4:
+                    img.src = "../Imagens/questão 4.jpg"
+                    question.innerHTML = '4) Em que animal Beorn consegue se transformar?'
+                    questionA.innerHTML = ' Um urso negro.'
+                    questionB.innerHTML = ' Um lobo.'
+                    questionC.innerHTML = ' Um tigre.'
+                    questionD.innerHTML = ' Um Cervo.'
+                    break;
+
+                case 5:
+                    img.src = "../Imagens/questão 5.jpg"
+                    question.innerHTML = '5) Como a companhia chega à Cidade do Lago?'
+                    questionA.innerHTML = ' Voando Sobre as Águias.'
+                    questionB.innerHTML = ' Dentro de barris.'
+                    questionC.innerHTML = ' Por um túnel secreto no solo.'
+                    questionD.innerHTML = ' Remando sobre um barco.'
+                    break;
+
+                case 6:
+                    img.src = "../Imagens/questão 6.jpg"
+                    question.innerHTML = '6) Como se chama o dragão que tomou o reino de Erebor?'
+                    questionA.innerHTML = ' Dragão alado.'
+                    questionB.innerHTML = ' Smaug o desolador.'
+                    questionC.innerHTML = ' Destruidor de reinos.'
+                    questionD.innerHTML = ' Perdição de Erebor.'
+                    break;
+
+                case 7:
+                    img.src = "../Imagens/questão 7.jpg"
+                    question.innerHTML = '7) Quem salvou Bilbo e seus companheiros de serem devorados pelos trolls?'
+                    questionA.innerHTML = ' Bifur.'
+                    questionB.innerHTML = ' Bombur.'
+                    questionC.innerHTML = ' Gandalf.'
+                    questionD.innerHTML = ' Beorn.'
+                    break;
+
+                case 8:
+                    img.src = "../Imagens/questão 8.jpg"
+                    question.innerHTML = '8) Onde Bilbo encontrou sua espada Ferroada?'
+                    questionA.innerHTML = ' Na toca dos trolls.' 
+                    questionB.innerHTML = ' Enterrada em seu Jardim.'
+                    questionC.innerHTML = ' Num baú em Valfenda.'
+                    questionD.innerHTML = ' Foi dada a ele por Gandalf.'
+                    break;
+
+                case 9:
+                    img.src = "../Imagens/questão 9.jpg"
+                    question.innerHTML = '9) Quais raças participaram da Batalha dos Cinco Exércitos?”?'
+                    questionA.innerHTML = ' Águias, Humanos, Elfos, Orcs e Magos.'
+                    questionB.innerHTML = ' Hobbits, Anões, Humanos, Elfos e Wargs.'
+                    questionC.innerHTML = ' Hobbit, Humanos, Magos, Orcs e Duendes.'
+                    questionD.innerHTML = ' Gnomos, Elfos, Anões, Magos e Wargs.'
+                    break;
+
+                case 10:
+                    img.src = "../Imagens/questão 10.jpg"
+                    question.innerHTML = '10) Qual o nome da montanha que os anões querem reconquistar?'
+                    questionA.innerHTML = ' Montanha Solitária.'
+                    questionB.innerHTML = ' Isildur.'
+                    questionC.innerHTML = ' Aragor.'
+                    questionD.innerHTML = ' Erebor.'
+                    break;
+
+                    case 11:
+               
+                    FimDeJogo(score)
+
+            }
+
+
+        }
+
+        FimDeJogo = (score) => {
+            if (score <= 30)
+            {
+                img.src = "../Imagens/Final2.gif"
+                question.innerHTML = 'Sua pontuação:' + score + '/100' + '<br>' +
+                'Você falhou, mas não desanianime estude mais sobre esse universo e volte a tentar!'
+                
+            } else if (score > 30 && score <= 50) {
+                img.src = "../Imagens/Final1.gif"
+                question.innerHTML = 'Sua pontuação:' + score + '/100' +  '<br>' +
+                'Possui bastante conhecimento pequeno Hobbit, mas pode melhorar!'
+                
+            } else {
+                img.src = "../Imagens/Final3.gif"
+                question.innerHTML = 'Sua pontuação:' + score + '/100' + '<br>' +
+                'Um Hobbit astuto e aventureiro de alto nível é o que você é!'
+                
+            }
+            limparCampos()
+            limparCores()
+        }
+
+
+        VerificarResposta = (id) => {
+            console.log(id);
+            console.log(questionCount);
+
+            var optionClicked = document.getElementById(id);
+
+            switch (questionCount) {
+                case 1:
+                    if (id == "questionC") {
+
+                        questionC.style.backgroundColor = "#39C919"
+                        score = score + 10;
+                    } else {
+                        questionC.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 2:
+                    if (id == "questionA") {
+
+                        questionA.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionA.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 3:
+                    if (id == "questionD") {
+                        questionD.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionD.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 4:
+                    if (id == "questionA") {
+                        questionA.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionA.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 5:
+                    if (id == "questionB") {
+                        questionB.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionB.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 6:
+                    if (id == "questionB") {
+                        questionB.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionB.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 7:
+                    if (id == "questionC") {
+                        questionC.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionC.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 8:
+                    if (id == "questionA") {
+                        questionA.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionA.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 9:
+                    if (id == "questionB") {
+                        questionB.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionB.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+                case 10:
+                    if (id == "questionD") {
+                        questionD.style.backgroundColor = "#39C919";
+                        score = score + 10;
+                    } else {
+                        questionD.style.backgroundColor = "#39C919";
+                        optionClicked.style.backgroundColor = "#D00723";
+                    }
+                    break;
+               
+
+            }
+
+            setTimeout(function () {
+                console.log(score);
+                limparCores();
+                novaQuestao();
+            }, 2700);
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
